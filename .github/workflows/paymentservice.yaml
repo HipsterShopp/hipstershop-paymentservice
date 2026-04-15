@@ -6,7 +6,7 @@ on:
       - main
       - develop
     paths:
-      - 'src/paymentservice/**'
+      - 'src/**'
       - '.github/workflows/paymentservice.yaml'
       - '.github/workflows/template.yaml'
   pull_request:
@@ -14,7 +14,7 @@ on:
       - main
       - develop
     paths:
-      - 'src/paymentservice/**'
+      - 'src/**'
       - '.github/workflows/paymentservice.yaml'
       - '.github/workflows/template.yaml'
 
@@ -24,11 +24,11 @@ permissions:
 
 jobs:
   call-template:
-    uses: ./.github/workflows/template.yaml
+    uses: HipsterShopp/hipstershop-shared-workflows/.github/workflows/template.yaml@main
     with:
       github_event_name: ${{ github.event_name }}
       service_name: paymentservice
-      service_path: src/paymentservice
+      service_path: src/
       runtime: node
       node-version: "20"
     secrets:
